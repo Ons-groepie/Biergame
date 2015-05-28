@@ -150,6 +150,10 @@
     <Content Include="Assets\splashscreenbier.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Content\background-main.jpg" />
+    <Content Include="Content\cursor.png" />
+    <Content Include="Content\start-click.png" />
+    <Content Include="Content\start-hover.png" />
+    <Content Include="Content\start-normal.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
