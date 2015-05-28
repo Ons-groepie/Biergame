@@ -1,15 +1,29 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Input.Mouse;
 
 namespace TheBeerGame
 {
     class MainMenu : Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
         GraphicsDevice device;
+        SpriteBatch spriteBatch;
+        
+        // Background
         Texture2D background;
 
+        // Start buttons
+        Texture2D startNormal;
+        Texture2D startHover;
+        Texture2D startClick;
+
+        // Mouse control
+        Vector2 cursorPos;
+        Texture2D mouseImage;
+
+        // Vars
         int screenWidth;
         int screenHeight;
 
@@ -17,6 +31,7 @@ namespace TheBeerGame
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            this.IsMouseVisible = true;
         }
 
         /// <summary>
@@ -27,8 +42,6 @@ namespace TheBeerGame
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
             base.Initialize();
         }
 
@@ -41,6 +54,11 @@ namespace TheBeerGame
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             background = Content.Load<Texture2D>("background-main");
+            mouseImage = Content.Load<Texture2D>("cursor");
+            startNormal = Content.Load<Texture2D>("start-normal");
+            startHover = Content.Load<Texture2D>("start-hover");
+            startClick = Content.Load<Texture2D>("start-click");
+
             device = graphics.GraphicsDevice;
 
             // TODO: use this.Content to load your game content here
@@ -63,7 +81,7 @@ namespace TheBeerGame
         protected override void Update(GameTime gameTime)
         {
             // TODO: Add your update logic here
-
+            cursorPos = new Vector2(mouseState.X, mouseState.Y);
             base.Update(gameTime);
         }
 
@@ -73,15 +91,20 @@ namespace TheBeerGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.White);
+
+            // Start de spriteBatch
             spriteBatch.Begin();
+
+            // Bepaal de schermresolutie
             screenWidth = device.PresentationParameters.BackBufferWidth;
             screenHeight = device.PresentationParameters.BackBufferHeight;
 
-            spriteBatch.Draw(background, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
-            spriteBatch.End();
-            // TODO: Add your drawing code here
+            // Teken de sprites
+            spriteBatch.Draw(background, new Rectangle(0, 0, screenWidth, screenHeight), Color.White * 0.7f);
+            spriteBatch.Draw(startNormal, new Rectangle(screenWidth/2, screenHeight/2, 400, 144), Color.White);
 
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }
