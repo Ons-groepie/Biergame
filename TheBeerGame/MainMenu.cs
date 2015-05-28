@@ -9,7 +9,7 @@ namespace TheBeerGame
         GraphicsDeviceManager graphics;
         GraphicsDevice device;
         SpriteBatch spriteBatch;
-        Mouse mouseState;
+        MouseState mouseState;
         
         // Background
         Texture2D background;
