@@ -61,6 +61,7 @@ namespace TheBeerGame
         protected override void Update(GameTime gameTime)
         {
             // TODO: Add your update logic here
+            mouseState = Mouse.GetState();
             base.Update(gameTime);
         }
 
