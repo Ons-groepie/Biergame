@@ -7,6 +7,11 @@ namespace TheBeerGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        GraphicsDevice device;
+        Texture2D background;
+
+        int screenWidth;
+        int screenHeight;
 
         public MainMenu()
         {
@@ -35,6 +40,8 @@ namespace TheBeerGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            background = Content.Load<Texture2D>("background-main");
+            device = graphics.GraphicsDevice;
 
             // TODO: use this.Content to load your game content here
         }
@@ -67,7 +74,12 @@ namespace TheBeerGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            spriteBatch.Begin();
+            screenWidth = device.PresentationParameters.BackBufferWidth;
+            screenHeight = device.PresentationParameters.BackBufferHeight;
 
+            spriteBatch.Draw(background, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+            spriteBatch.End();
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
