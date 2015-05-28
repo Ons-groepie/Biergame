@@ -49,8 +49,6 @@ namespace TheBeerGame
             startClick = Content.Load<Texture2D>("start-click");
 
             device = graphics.GraphicsDevice;
-
-            // TODO: use this.Content to load your game content here
         }
 
         protected override void UnloadContent()
@@ -78,7 +76,24 @@ namespace TheBeerGame
 
             // Teken de sprites
             spriteBatch.Draw(background, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
-            spriteBatch.Draw(startNormal, new Rectangle(screenWidth/6, screenHeight/2, 400, 144), Color.White);
+
+            if (mouseState.X >= 500 && mouseState.Y <= 900)
+            {
+                if (mouseState.Y >= 500 && mouseState.Y <= 644)
+                {
+                    spriteBatch.Draw(startHover, new Rectangle(500, 500, 400, 144), Color.White);
+                }
+                else
+                {
+                    spriteBatch.Draw(startNormal, new Rectangle(500, 500, 400, 144), Color.White);
+                }
+            }
+            else
+            {
+                spriteBatch.Draw(startNormal, new Rectangle(500, 500, 400, 144), Color.White);
+            }
+
+            
 
             // End de spireBatch
             spriteBatch.End();
