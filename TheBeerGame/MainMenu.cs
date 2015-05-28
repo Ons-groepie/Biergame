@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Input.Mouse;
 
 namespace TheBeerGame
 {
@@ -10,6 +9,7 @@ namespace TheBeerGame
         GraphicsDeviceManager graphics;
         GraphicsDevice device;
         SpriteBatch spriteBatch;
+        Mouse mouseState;
         
         // Background
         Texture2D background;
@@ -20,7 +20,6 @@ namespace TheBeerGame
         Texture2D startClick;
 
         // Mouse control
-        Vector2 cursorPos;
         Texture2D mouseImage;
 
         // Vars
@@ -34,21 +33,11 @@ namespace TheBeerGame
             this.IsMouseVisible = true;
         }
 
-        /// <summary>
-        /// Allows the game to perform any initialization it needs to before starting to run.
-        /// This is where it can query for any required services and load any non-graphic
-        /// related content.  Calling base.Initialize will enumerate through any components
-        /// and initialize them as well.
-        /// </summary>
         protected override void Initialize()
         {
             base.Initialize();
         }
 
-        /// <summary>
-        /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
-        /// </summary>
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
@@ -64,31 +53,17 @@ namespace TheBeerGame
             // TODO: use this.Content to load your game content here
         }
 
-        /// <summary>
-        /// UnloadContent will be called once per game and is the place to unload
-        /// game-specific content.
-        /// </summary>
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
         }
 
-        /// <summary>
-        /// Allows the game to run logic such as updating the world,
-        /// checking for collisions, gathering input, and playing audio.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
             // TODO: Add your update logic here
-            cursorPos = new Vector2(mouseState.X, mouseState.Y);
             base.Update(gameTime);
         }
 
-        /// <summary>
-        /// This is called when the game should draw itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.White);
@@ -101,9 +76,10 @@ namespace TheBeerGame
             screenHeight = device.PresentationParameters.BackBufferHeight;
 
             // Teken de sprites
-            spriteBatch.Draw(background, new Rectangle(0, 0, screenWidth, screenHeight), Color.White * 0.7f);
-            spriteBatch.Draw(startNormal, new Rectangle(screenWidth/2, screenHeight/2, 400, 144), Color.White);
+            spriteBatch.Draw(background, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+            spriteBatch.Draw(startNormal, new Rectangle(screenWidth/6, screenHeight/2, 400, 144), Color.White);
 
+            // End de spireBatch
             spriteBatch.End();
             base.Draw(gameTime);
         }
