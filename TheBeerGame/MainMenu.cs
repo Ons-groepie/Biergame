@@ -74,23 +74,28 @@ namespace TheBeerGame
             screenWidth = device.PresentationParameters.BackBufferWidth;
             screenHeight = device.PresentationParameters.BackBufferHeight;
 
+            int startPosX = 400;
+            int startPosY = 500;
+            int startWidth = 400;
+            int startHeight = 144;
+
             // Teken de sprites
             spriteBatch.Draw(background, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
 
-            if (mouseState.X >= 500 && mouseState.Y <= 900)
+            if (mouseState.X >= startPosX && mouseState.X <= startPosX+startWidth)
             {
-                if (mouseState.Y >= 500 && mouseState.Y <= 644)
+                if (mouseState.Y >= startPosY && mouseState.Y <= startPosY+startHeight)
                 {
-                    spriteBatch.Draw(startHover, new Rectangle(500, 500, 400, 144), Color.White);
+                    spriteBatch.Draw(startHover, new Rectangle(startPosX, startPosY, startWidth, startHeight), Color.White);
                 }
                 else
                 {
-                    spriteBatch.Draw(startNormal, new Rectangle(500, 500, 400, 144), Color.White);
+                    spriteBatch.Draw(startNormal, new Rectangle(startPosX, startPosY, startWidth, startHeight), Color.White);
                 }
             }
             else
             {
-                spriteBatch.Draw(startNormal, new Rectangle(500, 500, 400, 144), Color.White);
+                spriteBatch.Draw(startNormal, new Rectangle(startPosX, startPosY, startWidth, startHeight), Color.White);
             }
 
             
