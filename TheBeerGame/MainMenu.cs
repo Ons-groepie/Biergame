@@ -74,7 +74,7 @@ namespace TheBeerGame
             screenWidth = device.PresentationParameters.BackBufferWidth;
             screenHeight = device.PresentationParameters.BackBufferHeight;
 
-            int startPosX = 400;
+            int startPosX = 300;
             int startPosY = 500;
             int startWidth = 400;
             int startHeight = 144;
@@ -86,7 +86,14 @@ namespace TheBeerGame
             {
                 if (mouseState.Y >= startPosY && mouseState.Y <= startPosY+startHeight)
                 {
-                    spriteBatch.Draw(startHover, new Rectangle(startPosX, startPosY, startWidth, startHeight), Color.White);
+                    if (mouseState.LeftButton == ButtonState.Pressed)
+                    {
+                        spriteBatch.Draw(startClick, new Rectangle(startPosX, startPosY, startWidth, startHeight), Color.White);
+                    }
+                    else
+                    {
+                        spriteBatch.Draw(startHover, new Rectangle(startPosX, startPosY, startWidth, startHeight), Color.White);
+                    }
                 }
                 else
                 {
