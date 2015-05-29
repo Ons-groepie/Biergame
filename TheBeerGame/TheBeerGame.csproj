@@ -152,6 +152,7 @@
     <Content Include="Content\background-main.jpg" />
     <Content Include="Content\cursor.png" />
     <Content Include="Content\start-click.png" />
+    <Content Include="Content\start-clicked.png" />
     <Content Include="Content\start-hover.png" />
     <Content Include="Content\start-normal.png" />
   </ItemGroup>

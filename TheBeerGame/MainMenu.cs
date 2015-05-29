@@ -10,6 +10,7 @@ namespace TheBeerGame
         GraphicsDevice device;
         SpriteBatch spriteBatch;
         MouseState mouseState;
+        MouseState oldMouseState;
         
         // Background
         Texture2D background;
@@ -18,6 +19,7 @@ namespace TheBeerGame
         Texture2D startNormal;
         Texture2D startHover;
         Texture2D startClick;
+        Texture2D startClicked;
 
         // Mouse control
         Texture2D mouseImage;
@@ -47,6 +49,8 @@ namespace TheBeerGame
             startNormal = Content.Load<Texture2D>("start-normal");
             startHover = Content.Load<Texture2D>("start-hover");
             startClick = Content.Load<Texture2D>("start-click");
+            startClicked = Content.Load<Texture2D>("start-clicked");
+
 
             device = graphics.GraphicsDevice;
         }
@@ -81,6 +85,7 @@ namespace TheBeerGame
 
             // Teken de sprites
             spriteBatch.Draw(background, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+            
 
             if (mouseState.X >= startPosX && mouseState.X <= startPosX+startWidth)
             {
@@ -94,6 +99,10 @@ namespace TheBeerGame
                     {
                         spriteBatch.Draw(startHover, new Rectangle(startPosX, startPosY, startWidth, startHeight), Color.White);
                     }
+                    if (oldMouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton == ButtonState.Released)
+                    {
+                        // Load other screen
+                    }
                 }
                 else
                 {
@@ -105,7 +114,7 @@ namespace TheBeerGame
                 spriteBatch.Draw(startNormal, new Rectangle(startPosX, startPosY, startWidth, startHeight), Color.White);
             }
 
-            
+            oldMouseState = mouseState;
 
             // End de spireBatch
             spriteBatch.End();
