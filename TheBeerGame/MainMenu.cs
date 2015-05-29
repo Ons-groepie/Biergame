@@ -101,7 +101,8 @@ namespace TheBeerGame
                     }
                     if (oldMouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton == ButtonState.Released)
                     {
-                        // Load other screen
+                       // Load other screen
+                       
                     }
                 }
                 else
