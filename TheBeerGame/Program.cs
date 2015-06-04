@@ -12,7 +12,7 @@ namespace TheBeerGame
         /// </summary>
         static void Main()
         {
-            var factory = new MonoGame.Framework.GameFrameworkViewSource<MainMenu>();
+            var factory = new MonoGame.Framework.GameFrameworkViewSource<ScreenManager>();
             Windows.ApplicationModel.Core.CoreApplication.Run(factory);
         }
     }
