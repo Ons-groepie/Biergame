@@ -43,6 +43,7 @@ namespace TheBeerGame
 
         protected override void LoadContent()
         {
+                     
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             blank = Content.Load<Texture2D>("blank");
@@ -52,8 +53,6 @@ namespace TheBeerGame
             startHover = Content.Load<Texture2D>("start-hover");
             startClick = Content.Load<Texture2D>("start-click");
             startClicked = Content.Load<Texture2D>("start-clicked");
-
-
             device = graphics.GraphicsDevice;
         }
 
