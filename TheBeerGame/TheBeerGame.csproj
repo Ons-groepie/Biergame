@@ -137,7 +137,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScreenManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -151,6 +150,7 @@
     <Content Include="Assets\splashscreenbier.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Content\background-main.jpg" />
+    <Content Include="Content\blank.png" />
     <Content Include="Content\cursor.png" />
     <Content Include="Content\start-click.png" />
     <Content Include="Content\start-clicked.png" />
